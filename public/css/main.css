@@ -1,0 +1,197 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+  
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+#create-event-modal .modal-dialog{
+  position: fixed;
+  bottom: -18px;
+  right: 0;
+  width: 25%;
+}
+
+#event-box{
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px 7px rgba(0,0,0,0.2);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+#event-box .label{
+  font-weight: 600;
+  padding-right:10px
+}
+#event-box h5{
+  border-bottom: 1px solid rgba(0,0,0,0.14);
+  padding-bottom: 5px;
+}
+.fc-row.fc-rigid{
+  overflow:visible;
+}
+#backgroundOverlay{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#event-box .header{
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+#event-box .btn{
+  border-radius: 50%;
+}
+#event-box .btn:hover{
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+#event-box .btn:last-child{
+  /* margin-left:auto; */
+}
+#event-box .btn:first-child{
+  /* margin-right: 10px; */
+}
+#edit-event-modal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 11;
+
+}
+#edit-event-modal .modal-content{
+  animation-name:animationright;
+  animation-duration: 0.4s;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 12;
+}
+@keyframes animationright{
+  from {right: -200px;opacity: 0;}
+  to{right:0; opacity: 1;}
+}
+#edit-event-modal .datetime{
+  display: flex;
+}
+#edit-event-modal .datetime:last-child{
+  margin-top: 15px;
+}
+#edit-event-modal #start-time,
+#edit-event-modal #start-date,
+#edit-event-modal #end-time,
+#edit-event-modal #end-date
+{
+  width: 80px;
+  margin-left: 15px;
+  border:none;
+}
+#edit-event-modal .label{
+  width: 45px;
+  display: flex;
+  align-items: center;
+}
+
+
+#create-event-modal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 11;
+
+}
+#create-event-modal .modal-content{
+  animation-name:animationright;
+  animation-duration: 0.4s;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 12;
+}
+@keyframes animationright{
+  from {right: -200px;opacity: 0;}
+  to{right:0; opacity: 1;}
+}
+#create-event-modal .datetime{
+  display: flex;
+}
+#create-event-modal .datetime:last-child{
+  margin-top: 15px;
+}
+#create-event-modal #start-time,
+#create-event-modal #start-date,
+#create-event-modal #end-time,
+#create-event-modal #end-date
+{
+  width: 80px;
+  margin-left: 15px;
+  border:none;
+}
+#create-event-modal .label{
+  width: 45px;
+  display: flex;
+  align-items: center;
+}
+.greenCheck{
+  font-size: 1.3rem;
+  color:green;
+  padding-top:0.2rem;
+  box-sizing: border-box;
+}
+.greenCheck:hover{
+  color:green;
+}
+#suggestUser{
+  width: 230px;
+  padding: 1rem ;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left:50%;
+  z-index: 12;
+  background: white;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.14);
+  border-radius: 5px;
+  transform: translate(-50%,0);
+  animation-name: animationbottom;
+  animation-duration: 0.5s;
+}
+@keyframes animationbottom{
+  from{bottom:-200px;}
+  to{bottom:0;}
+}
+#btnCloseSuggestUser{
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+}
+#suggestUser .content{
+  line-height: 2.4;
+}
