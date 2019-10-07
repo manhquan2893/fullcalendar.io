@@ -25,9 +25,6 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,6 +49,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -72,21 +70,43 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-    <div id="calendar"></div>
+    </nav>
+    <div class="main-content">
+        <div id="calendar"></div>
+        <div id="personal-info">
+            <div class="view">
+                <div class="view-item">
+                    <input type="radio" v-model="currentView" id="myEvents" value="myEvents">
+                    <label for="myEvents">My Events</label>
+                </div>
+                <div class="view-item">
+                    <input type="radio" v-model="currentView" id="eventsShared" value="eventsShared">
+                    <label for="eventsShared">Events shared with me</label>
+                </div>
+                <div class="view-item">
+                    <input type="radio" v-model="currentView" id="allEvents"  value="allEvents">
+                    <label for="allEvents">All Events</label>
+                </div>
+            </div>
+        </div>
+    </div>
     @include('admin/events/create')
     @include('admin/events/edit')
     @include('admin/events/box')
-    <div id="suggestUser">
+    <!-- <div id="suggestUser">
         <div class="content">
             Click on date to create
         </div>        
         <button id="btnCloseSuggestUser">
             <i class="fas fa-times"></i>
         </button>
-    </div>
+    </div> -->
     <div id="backgroundOverlay"></div>
 
+    <!-- start Vuejs -->
+     <script src="{{asset('js/vue.js')}}"></script>
+     
+    <!-- end Vuejs -->
     <!-- start moment.js -->
     <script src="{{asset('js/moment.min.js')}}"></script>
     <!-- end moment.js -->
@@ -112,6 +132,6 @@
     <!-- end fullcalendar js -->
     
     <script src="{{asset('js/app.js')}}"></script>
-   
+    <script src="{{asset('js/extra.js')}}"></script>
 </body>
 </html>

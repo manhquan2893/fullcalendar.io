@@ -23,3 +23,10 @@ Route::get('redirect/{driver}', 'Auth\LoginController@redirectToProvider')
 Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')
     ->name('login.callback')
     ->where('driver', implode('|', config('auth.socialite.drivers')));   
+
+
+Route::resource('events','EventController');
+
+Route::resource('users','UserController');
+
+Route::get('test','EventController@index');

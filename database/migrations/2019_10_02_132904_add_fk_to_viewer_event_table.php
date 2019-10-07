@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFkToEventsTable extends Migration
+class AddFkToViewerEventTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddFkToEventsTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
+        Schema::table('viewer_event', function (Blueprint $table) {
             //
-             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('viewer_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 
@@ -26,7 +27,7 @@ class AddFkToEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
+        Schema::table('viewer_event', function (Blueprint $table) {
             //
         });
     }

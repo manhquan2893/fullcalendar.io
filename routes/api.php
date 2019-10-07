@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Http\Request;
@@ -16,4 +17,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('events','EventController');
+// Route::resource('events','EventController');
+
+// Route::resource('users','UserController');
+// //
+// Route::get('test','EventController@index');

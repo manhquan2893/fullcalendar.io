@@ -25,6 +25,10 @@
                 <td class="label">To:</td>
                 <td id="to"></td>
             </tr>
+            <tr>
+                <td class="label">Created by:</td>
+                <td id="creator"></td>
+            </tr>
         </table>
     </div>
 </div>

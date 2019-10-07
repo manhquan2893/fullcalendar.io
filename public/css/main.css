@@ -1,3 +1,4 @@
+
 html, body {
   margin: 0;
   padding: 0;
@@ -5,11 +6,19 @@ html, body {
   font-size: 14px;
   
 }
-
-#calendar {
-  max-width: 900px;
-  margin: 40px auto;
+.main-content{
+  display: flex;
+  margin:40px auto;
+  max-width: 1080px;
 }
+#personal-info{
+  min-width: 250px;
+  margin-top: 56px;
+  margin-left: 25px;
+  padding:1rem;
+  border:1px solid rgba(0,0,0,0.2);
+}
+
 
 #create-event-modal .modal-dialog{
   position: fixed;
@@ -54,6 +63,9 @@ html, body {
   display: flex;
   justify-content: flex-end;
   box-sizing: border-box;
+}
+#event-box tr td:first-child{
+  width: 89px;
 }
 #event-box .btn{
   border-radius: 50%;
@@ -140,9 +152,16 @@ html, body {
 }
 #create-event-modal .datetime{
   display: flex;
+  margin-top: 9px;
 }
 #create-event-modal .datetime:last-child{
-  margin-top: 15px;
+  margin-top: 25px;
+}
+/*edit datetime*/
+#create-event-modal .datetime-box{
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.7);
+  display: flex;
+  padding: 3px 5px;
 }
 #create-event-modal #start-time,
 #create-event-modal #start-date,
@@ -150,14 +169,234 @@ html, body {
 #create-event-modal #end-date
 {
   width: 80px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
+  border:none;
+  padding: 4px;
+  background-color: rgba(0,0,0,0.04);
+}
+#create-event-modal #start-time:hover,
+#create-event-modal #start-date:hover,
+#create-event-modal #end-time:hover,
+#create-event-modal #end-date:hover
+{
   border:none;
 }
+#create-event-modal #start-time,
+#create-event-modal #end-time{
+  width: 55px;
+  margin-right: 8px;
+}
+
+/*end edit datetime*/
 #create-event-modal .label{
   width: 45px;
   display: flex;
   align-items: center;
+  
 }
+#create-event-modal p
+{
+  margin:0;
+  font-size: 13px;
+}
+#create-event-modal label{
+  margin:0;
+}
+#create-event-modal .public{
+  margin-top: 14px;
+}
+#create-event-modal #pickViewer{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 11;
+  /* padding:1rem; */
+}
+
+#create-event-modal .closePickViewer{
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+}
+#create-event-modal #pickViewer nav{
+  display: flex;
+  justify-content: flex-end;
+}
+#create-event-modal #pickViewer input{
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.6);
+  margin-top: 5px;
+  padding: 5px;
+}
+
+
+#create-event-modal .listViewers ul{
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+#create-event-modal .listViewers li{
+  padding: 5px;
+  cursor: pointer;
+  transition:all 0.4s;
+  color: white;
+  background-color: #4a4a4a;
+}
+#create-event-modal .listViewers li:hover{
+  background-color: rgba(0,0,0,0.1);
+}
+#create-event-modal #pickViewer .content{
+  background-color: rgb(255,255,255);
+  z-index: 12;
+  /* margin:auto; */
+  /* margin-top: 250px; */
+  width: 410px;
+  /* min-height: 150px; */
+  height: 100%;
+  /* padding: 1rem 0; */
+  background-color: #bfbfbf;
+}
+#create-event-modal .list-viewer-item{
+  display: flex;
+  flex-wrap: wrap;
+}
+#create-event-modal .viewer-item{
+  background-color: #f6f6f6;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+}
+#create-event-modal .viewer-item button{
+  border: none;
+  background-color: transparent;
+}
+
+
+
+
+
+#edit-event-modal p
+{
+  margin:0;
+  font-size: 13px;
+}
+#edit-event-modal label{
+  margin:0;
+}
+#edit-event-modal .public{
+  margin-top: 14px;
+}
+#edit-event-modal #pickViewer{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 11;
+  /* padding:1rem; */
+}
+
+#edit-event-modal .closePickViewer{
+  border: none;
+  background-color: transparent;
+}
+#edit-event-modal #pickViewer nav{
+  display: flex;
+  justify-content: flex-end;
+}
+#edit-event-modal #pickViewer input{
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.6);
+  margin-top: 5px;
+}
+
+
+
+#edit-event-modal .datetime-box{
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.7);
+  display: flex;
+  padding: 3px 5px;
+}
+#edit-event-modal #start-time,
+#edit-event-modal #start-date,
+#edit-event-modal #end-time,
+#edit-event-modal #end-date
+{
+  width: 80px;
+  /* margin-left: 15px; */
+  border:none;
+  padding: 4px;
+  background-color: rgba(0,0,0,0.04);
+  margin: 0;
+}
+#edit-event-modal #start-time:hover,
+#edit-event-modal #start-date:hover,
+#edit-event-modal #end-time:hover,
+#edit-event-modal #end-date:hover
+{
+  border:none;
+}
+#edit-event-modal #start-time,
+#edit-event-modal #end-time{
+  width: 55px;
+  margin-right: 8px;
+}
+#edit-event-modal .datetime{
+  display: flex;
+  margin-top: 9px;
+}
+#edit-event-modal .datetime:last-child{
+  margin-top: 25px;
+}
+
+#edit-event-modal .listViewers ul{
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+#edit-event-modal .listViewers li{
+  padding: 5px;
+  cursor: pointer;
+  transition:all 0.4s;
+  color: white;
+  background-color: rgba(0,0,0,0.2);
+}
+#edit-event-modal .listViewers li:hover{
+  background-color: rgba(0,0,0,0.1);
+}
+#edit-event-modal #pickViewer .content{
+  background-color: rgb(255,255,255);
+  z-index: 12;
+  /* margin:auto; */
+  /* margin-top: 250px; */
+  width: 410px;
+  /* min-height: 150px; */
+  height: 100%;
+  padding: 1rem;
+}
+#edit-event-modal .list-viewer-item{
+  display: flex;
+  flex-wrap: wrap;
+}
+#edit-event-modal .viewer-item{
+  background-color: #f6f6f6;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+}
+#edit-event-modal .viewer-item button{
+  border: none;
+  background-color: transparent;
+}
+
+
+
 .greenCheck{
   font-size: 1.3rem;
   color:green;
@@ -194,4 +433,6 @@ html, body {
 }
 #suggestUser .content{
   line-height: 2.4;
+}
+#personal-info .form-group{
 }
